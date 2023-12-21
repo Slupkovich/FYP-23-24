@@ -1,0 +1,55 @@
+/* Hero Section Styles */
+.hero-container {
+  background-image: url('~/public/bgonebest.png'); /* image path */
+  height: 100vh; /* Full height of the viewport */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Cover the entire container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  color: white; /* Text colour */
+  text-align: center; /* Center the text */
+  padding: 0 15px; /* Padding on smaller screens */
+}
+
+.hero-container h1 {
+  font-size: 2.5rem; /* Large font size for main headline */
+  margin-bottom: 1.5rem; /* Spacing between headline and subheadline */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-container p {
+  font-size: 1.5rem; /* Subheadline font size */
+  margin-bottom: 2rem; /* Spacing between subheadline and button */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-btn {
+  background-image: linear-gradient(to right, #49A6E9, #5EC3E5);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px; /* Rounded corners for the button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease; /* Transition for mouse-over effects */
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .hero-container h1 {
+    font-size: 2rem; /* Slightly smaller font size for headline */
+  }
+
+  .hero-container p {
+    font-size: 1rem; /* Slightly smaller font size for subheadline */
+  }
+}

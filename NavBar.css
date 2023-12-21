@@ -1,0 +1,249 @@
+/* Main navbar styles */
+.navbar {
+    background-color: #030F28;
+    color: white;
+    padding: 10px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid white; /* Add a white border at the bottom */
+}
+
+/* Logo styling */
+.navbar-logo img {
+    height: 175px; /* Example size, adjust as necessary */
+    width: auto;
+}
+
+/* Nav menu styles */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav item styles */
+.nav-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Nav links styles */
+.nav-links {
+    color: white;
+    text-decoration: none;
+    padding:  10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font, match with your logo's font */
+}
+
+.nav-links:hover {
+    color: #030F28;
+    background-color: rgba(94, 195, 229, 0.2); /* Soft background on hover */
+    border-radius: 4px; /* Optional: rounded corners */
+    transition: background-color 0.7s ease; /* Smooth transition for hover effect */
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    background-color: #030F28;
+    border-radius: 4px;
+    min-width: 325px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    
+}
+
+.dropdown-content .dropdown-item {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px; /* Maintain rounded corners for dropdown items */
+    margin: 2px 0; /* Add margin between items */
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.dropdown-content .dropdown-item:hover {
+    background-color: #5EC3E5;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+/* Show the dropdown content when hovering */
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+
+/* Highlight the Modules link when the dropdown is active */
+.nav-item:hover .nav-links,
+.nav-item:hover .nav-links:focus,
+.nav-item:hover .nav-links:active {
+    background-color: #5EC3E5;
+    color: white;
+}
+
+/* Keep the dropdown content box visible when hovering over the content itself */
+.dropdown-content:hover {
+    display: block;
+}
+
+/* Keep the Modules link highlighted when hovering over the dropdown content */
+.dropdown-content:hover + .nav-links {
+    background-color: #5EC3E5;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Login/Signup button styles */
+.btn-login-signup {
+    background-color: #5EC3E5;
+    border: 2px solid #5EC3E5; /* Border using blue color */
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.7s ease;
+    
+}
+
+.btn-login-signup:hover {
+    background-color: #030F28;
+    color: white;
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+    display: none; /* Hidden by default, shown in media query below */
+    cursor: pointer;
+}
+
+.burger-icon {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px; /* Width of the burger menu */
+    height: 20px; /* Total height of the burger menu */
+  }
+  
+  .burger-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+  }
+
+.desktop-only {
+    display: block; /* Visible on desktop */
+}
+
+.mobile-only {
+    display: none; /* Hidden on desktop */
+}
+
+.nav-menu-close {
+    position: absolute;
+    top: 0;
+    padding: 10px 15px;
+    font-size: 24px; /* Adjust the size as needed */
+    color: white; /* Adjust the color as needed */
+    cursor: pointer;
+}
+
+.nav-menu-close {
+    display: none;
+}
+
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .navbar-logo img {
+        height: 115px; /* Adjusted height for mobile */
+        display: inline-block; /* Ensures left alignment */
+    }
+
+    .nav-menu {
+        /* Ensure full height and adjust width as needed */
+        height: 100vh;
+        width: 100%; 
+        position: fixed;
+        transform: translateX(-100%);
+        top: 0;
+        right: 0;
+        flex-direction: column; /* Stack items vertically */
+        padding-top: 150px; /* Add padding to the top to lower the links */
+        justify-content: flex-start; /* Keep items aligned to the top */
+        background-color: #030F28; /* Match the navbar color */
+        z-index: 100; /* Above other content */
+        overflow-y: auto; /* Scroll if content is longer than the screen */
+    }
+
+    .nav-menu.active {
+        display: flex;
+        max-height: 100%; /* Adjust as per number of items */
+        transform: translateX(0); /* Bring the menu into view */
+    }
+
+     /* Show the close button only when the off-canvas menu is active */
+     .nav-menu-close {
+        display: block; /* Show the close button */
+        position: absolute;
+        top: 50px;
+        right: 40px;
+        font-size: 24px; /* Adjust the size as needed */
+        color: white; /* Adjust the colour as needed */
+        cursor: pointer;
+        z-index: 101; /* Ensure it's above the nav-menu */
+    }
+
+    .nav-links {
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .mobile-menu {
+        display: block; /* Show mobile menu icon on smaller screens */
+        position: absolute;
+        right: 50px; 
+            
+        }
+
+    .burger-icon {
+        display: flex; /* Show the burger icon */
+     
+    }
+
+    .burger-icon span {
+        transition: all 0.2s ease; /* Smooth transition for burger lines */
+    }
+
+    .btn-login-signup {
+        display: block; /* Hide the button on the navbar in mobile view */
+    }
+
+    .desktop-only {
+        display: none; /* Hide the desktop button on mobile */
+    }
+
+    .mobile-only {
+        display: block; /* Show the mobile button inside the off-canvas menu */
+    }
+
+}
+
